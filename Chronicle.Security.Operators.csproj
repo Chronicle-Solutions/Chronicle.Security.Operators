@@ -6,4 +6,22 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+	<ItemGroup>
+		<ProjectReference Include="..\Chronicle\Chronicle.csproj">
+			<Private>false</Private>
+			<ExcludeAssets>runtime</ExcludeAssets>
+		</ProjectReference>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="Operator.cs">
+	    <SubType>Form</SubType>
+	  </Compile>
+	  <Compile Update="OperatorForm.cs">
+	    <SubType>Form</SubType>
+	  </Compile>
+	</ItemGroup>
+	<PropertyGroup>
+		<PostBuildEvent>"$(SolutionDir)build.py"</PostBuildEvent>
+	</PropertyGroup>
 </Project>
