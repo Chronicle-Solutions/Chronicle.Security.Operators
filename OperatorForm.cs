@@ -19,11 +19,17 @@ namespace Chronicle.Security.Operators
         public OperatorForm()
         {
             InitializeComponent();
-            MenuUtils.populateMenu(menuToolStripMenuItem.DropDownItems, "/");
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Search s = new Search();
+            DialogResult res = s.ShowDialog();
+            if (res != DialogResult.OK) return;
+            Operator o = new Operator(false);
+            o.OperatorID = s.OperatorID;
+            o.MdiParent = this;
+            o.Show();
 
         }
 
@@ -32,6 +38,13 @@ namespace Chronicle.Security.Operators
             Operator o = new Operator(true);
             o.MdiParent = this;
             o.Show();
+        }
+
+        private void saveToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            // Get current Mdi Child
+            if (ActiveMdiChild is not Operator opr) return;
+            opr.doSave(null, null);
         }
     }
 }
