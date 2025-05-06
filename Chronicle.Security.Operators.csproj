@@ -16,9 +16,6 @@
 			<Private>false</Private>
 			<ExcludeAssets>runtime</ExcludeAssets>
 		</ProjectReference>
-		<PackageReference Include="Isopoh.Cryptography.Argon2" Version="1.0.0.0">
-			<ExcludeAssets>runtime</ExcludeAssets>
-		</PackageReference>
 	</ItemGroup>
 
 	<ItemGroup>
