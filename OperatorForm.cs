@@ -44,7 +44,7 @@ namespace Chronicle.Security.Operators
         {
             // Get current Mdi Child
             if (ActiveMdiChild is not Operator opr) return;
-            opr.doSave(null, null);
+            opr.doSave(null, new EventArgs());
         }
     }
 }

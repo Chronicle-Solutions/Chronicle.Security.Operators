@@ -4,13 +4,13 @@ namespace Chronicle.Security.Operator
 {
     public class Operators : IPlugable
     {
-        public string PluginName => "Operator Management";
+        public override string PluginName => "Operator Management";
 
-        public string PluginDescription => "Allow administrators to administer user security";
+        public override string PluginDescription => "Allow administrators to administer user security";
 
-        public Version Version => new Version("1.0.0.0");
+        public override Version Version => new Version("1.0.0.0");
 
-        public int Execute()
+        public override int Execute()
         {
             OperatorForm f = new();
 

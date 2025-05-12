@@ -15,8 +15,8 @@ namespace Chronicle.Security.Operators
 {
     public partial class Search : Form
     {
-        public string OperatorID { get => _operatorID; }
-        private string _operatorID;
+        public string OperatorID { get => _operatorID ?? ""; }
+        private string? _operatorID;
 
         public Search()
         {

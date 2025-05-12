@@ -21,13 +21,13 @@ namespace Chronicle.Security.Operators
         List<DataGridViewRow> deleteRows = new List<DataGridViewRow>();
         public string OperatorID
         {
-            get => _OperatorID; set
+            get => _OperatorID ?? ""; set
             {
                 _OperatorID = value;
                 OperatorChanged.Invoke(_OperatorID, EventArgs.Empty);
             }
         }
-        private string _OperatorID;
+        private string? _OperatorID;
 
         public event EventHandler OperatorChanged;
         public Operator(bool isInit)
@@ -111,7 +111,7 @@ namespace Chronicle.Security.Operators
                 }
 
             }
-            textBox4.TextChanged += textBox4_TextChanged;
+            textBox4.TextChanged += new EventHandler(textBox4_TextChanged);
         }
 
         private string[] getClassNames()
@@ -136,7 +136,7 @@ namespace Chronicle.Security.Operators
 
         }
 
-        public void doSave(object sender, EventArgs e)
+        public void doSave(object? sender, EventArgs e)
         {
             // Update or Create.
             if (txtOperatorID.ReadOnly) updateOperator();
@@ -245,7 +245,7 @@ namespace Chronicle.Security.Operators
             textBox4.UseSystemPasswordChar = !checkBox1.Checked;
         }
 
-        private void textBox4_TextChanged(object sender, EventArgs e)
+        private void textBox4_TextChanged(object? sender, EventArgs e)
         {
 
             if (updatePassword) return;
